@@ -65,8 +65,9 @@ public class Main {
 
         // 6. Launch Embedded Web Dashboard Server
         try {
-            ServiceDeskServer server = new ServiceDeskServer(8080, ticketRepository, userRepository, reportingService);
-            server.start();
+        	ServiceDeskServer server = new ServiceDeskServer(8080, ticketRepository, userRepository,
+        	        ticketService, workflowService, reportingService);
+        	server.start();
         } catch (Exception e) {
             System.err.println("Failed to start ServiceDesk web server: " + e.getMessage());
         }
